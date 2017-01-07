@@ -11,11 +11,9 @@ class WelcomeController < ApplicationController
     #render plain: params
     
     if (params[:user_name]=='test' && params[:password]=='test1')
-              render 'login'
     else
-              flash[:notice]="Invalid User Name or Password"
+              flash.now[:notice]="Invalid User Name or Password"
               render 'home'
-      
     end  
     
     
