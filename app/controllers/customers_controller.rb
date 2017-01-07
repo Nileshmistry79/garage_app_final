@@ -4,6 +4,10 @@ class CustomersController < ApplicationController
     @customer=Customer.new
   end  
   
+  def edit
+     @customer=Customer.find(params[:id])
+  end  
+  
   def create
     #render plain: params[:customer].inspect
     @customer=Customer.new(customer_parmas)
@@ -17,6 +21,18 @@ class CustomersController < ApplicationController
     end   
     #
   end
+  
+  
+  def update
+    @customer=Customer.find(params[:id])
+    
+    if @customer.update(customer_parmas)
+      flash[:notice]= "Record is Updated"
+      redirect_to customer_path(@customer)  
+    else
+      render 'edit'
+    end   
+  end  
   
   def show
     @customer=Customer.find(params[:id])
