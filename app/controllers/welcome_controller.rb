@@ -10,16 +10,10 @@ class WelcomeController < ApplicationController
     #redirect_to new_customer_path
     #render plain: params
     
-    if (params[:user_name]=='test')
-       if (params[:password]=='test1')
-              flash[:notice]=""
+    if (params[:user_name]=='test' && params[:password]=='test1')
               render 'login'
-        else
-              flash[:notice]="Invalid password"
-              render 'home'
-        end
     else
-              flash[:notice]="Invalid password"
+              flash[:notice]="Invalid User Name or Password"
               render 'home'
       
     end  
