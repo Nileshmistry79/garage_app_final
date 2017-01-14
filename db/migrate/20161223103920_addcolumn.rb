@@ -1,6 +1,6 @@
 class Addcolumn < ActiveRecord::Migration
   def change
-    add_column :customers, :created_at, :date_time
-    add_column :customers, :updated_at, :date_time
+    change_column :customers, :created_at, :datetime
+    change_column :customers, :updated_at, :datetime
   end
 end
